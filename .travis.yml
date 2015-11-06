@@ -10,6 +10,7 @@ script:
   - sbt ++$TRAVIS_SCALA_VERSION coverageAggregate
 
 before_install:
-  - pip install codecov
+  - pip install --user codecov
+
 after_success:
   - codecov
