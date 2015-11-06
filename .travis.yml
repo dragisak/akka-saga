@@ -6,4 +6,10 @@ jdk:
   - oraclejdk8
 
 script:
-  - sbt ++$TRAVIS_SCALA_VERSION test multiNodeTests/test
+  - sbt ++$TRAVIS_SCALA_VERSION coverage test multiNodeTests/test
+  - sbt ++$TRAVIS_SCALA_VERSION coverageAggregate
+
+before_install:
+  - pip install codecov
+after_success:
+  - codecov
