@@ -45,7 +45,8 @@ lazy val multiNodeTests = Project(
     version         := projectVersion,
     scalaVersion    := commonScalaVersion,
     libraryDependencies ++= Seq(
-      "com.typesafe.akka" %% "akka-multi-node-testkit"  % akkaVersion       % Test
+      "com.typesafe.akka" %% "akka-multi-node-testkit"  % akkaVersion        % Test,
+      "org.scalatest"     %%  "scalatest"               % scalatestVersion   % Test
     ),
     // make sure that MultiJvm test are compiled by the default test compilation
     compile in MultiJvm <<= (compile in MultiJvm) triggeredBy (compile in Test),
